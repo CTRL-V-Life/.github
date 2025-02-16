@@ -14,7 +14,7 @@ jobs:
         uses: lowlighter/metrics@latest
         with:
           config_timezone: Europe/Paris
-          filename: metrics/metrics.plugin.introduction.svg
+          filename: metrics.plugin.introduction.svg
           token: ${{ secrets.METRICS_TOKEN }}
           user: CTRL-V-Life
           base: header
