@@ -1,4 +1,4 @@
-name: Norfair00 Profile metrics
+name: CTRL-V Life Public Metrics
 on:
   schedule:
     - cron: "0 4 * * *"
@@ -7,15 +7,19 @@ on:
       - master
   workflow_dispatch:
 jobs:
-  metrics:
+  ithub-metrics:
     runs-on: ubuntu-latest
+    environment:
+      name: production
+    permissions:
+      contents: write
     steps:
       - name: Organization introduction
         uses: lowlighter/metrics@latest
         with:
-          config_timezone: Europe/Paris
-          filename: metrics.plugin.introduction.svg
-          token: ${{ secrets.METRICS_TOKEN }}
           user: CTRL-V-Life
-          base: header
+          token: ${{ secrets.METRICS_TOKEN }}
+          filename: metrics.plugin.introduction.svg
+          config_timezone: Europe/Paris
+          base: header, activity, community, repositories, metadata
           plugin_introduction: yes
